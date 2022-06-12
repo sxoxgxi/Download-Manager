@@ -3,13 +3,14 @@ import shutil
 # from pathlib import Path
 
 
-PARENT_DIR = r'C:\Users\sxoxgxi\Downloads'
-AUDIO_DIR = r'C:\Users\sxoxgxi\Downloads\Audios'
-DOCUMENT_DIR = r'C:\Users\sxoxgxi\Downloads\Documents'
-DATAFILE_DIR = r'C:\Users\sxoxgxi\Downloads\Datafiles'
-VIDEO_DIR = r'C:\Users\sxoxgxi\Downloads\Videos'
-IMAGE_DIR = r'C:\Users\sxoxgxi\Downloads\Images'
-OTHER_DIR = r'C:\Users\sxoxgxi\Downloads\Others'
+PARENT_DIR = r'C:\Users\janak\Downloads'
+AUDIO_DIR = r'C:\Users\janak\Downloads\Audios'
+DOCUMENT_DIR = r'C:\Users\janak\Downloads\Documents'
+DATAFILE_DIR = r'C:\Users\janak\Downloads\Datafiles'
+VIDEO_DIR = r'C:\Users\janak\Downloads\Videos'
+IMAGE_DIR = r'C:\Users\janak\Downloads\Images'
+EXECUTABLE_DIR = r'C:\Users\janak\Downloads\Executables'
+OTHER_DIR = r'C:\Users\janak\Downloads\Others'
 
 
 IMAGES_FILES = [
@@ -25,7 +26,7 @@ VIDEOS_FILES = [
 AUDIO_FILE = [
     '.3ga', '.aac', '.ac3', '.aif', '.aiff',
     '.alac', '.amr', '.ape', '.au', '.dss',
-    '.flac', '.flv', '.m4a','.m4b', '.m4p',
+    '.flac', '.flv', '.m4a', '.m4b', '.m4p',
     '.mp3', '.mpga', '.ogg', '.oga', '.mogg',
     '.opus', '.qcp', '.tta', '.voc', '.wav',
     '.wma', '.wv'
@@ -40,7 +41,15 @@ DOCUMENTS_FILES = [
 DATA_FILES = [
     '.csv', '.dat', '.ged', '.key', '.keychain',
     '.ppt', '.pptx', '.sdf', '.tar', '.tax2016',
-    '.tax2020', '.tax2021', '.vcf', '.xml'
+    '.tax2020', '.tax2021', '.vcf', '.xml', '.zip'
+]
+
+EXECUTABLE_FILES = [
+    '.bat', '.bin', '.cmd', '.com', '.cpl', '.ex_', '.exe',
+    '.gadget', '.inf1', '.ins', '.inx', '.isu', '.job',
+    '.jse', '.lnk', '.msc', '.msi', '.msp', '.mst', '.paf',
+    '.pif', '.ps1', '.reg', '.rgs', '.scr', '.sct',
+    '.shb', '.shs', '.ws', '.wsf', '.wsh'
 ]
 
 
@@ -49,7 +58,7 @@ def main():
     os.chdir(PARENT_DIR)
 
     dirs = [
-        'Audios', 'Images', 'Documents', 'Videos', 'Datafiles', 'Others'
+        'Audios', 'Images', 'Documents', 'Videos', 'Datafiles', 'Others', 'Executables'
     ]
 
     for file in os.listdir():
@@ -58,6 +67,7 @@ def main():
         images = os.path.splitext(file)[1] in IMAGES_FILES
         data = os.path.splitext(file)[1] in DATA_FILES
         documents = os.path.splitext(file)[1] in DOCUMENTS_FILES
+        executables = os.path.splitext(file)[1] in EXECUTABLE_FILES
         if file not in dirs:
             if data:
                 shutil.move(file, DATAFILE_DIR)
@@ -69,6 +79,8 @@ def main():
                 shutil.move(file, VIDEO_DIR)
             elif images:
                 shutil.move(file, IMAGE_DIR)
+            elif executables:
+                shutil.move(file, EXECUTABLE_DIR)
             else:
                 shutil.move(file, OTHER_DIR)
 
