@@ -48,16 +48,16 @@ def main():
     print("Trying to manage the files...")
     os.chdir(PARENT_DIR)
 
+    dirs = [
+        'Audios', 'Images', 'Documents', 'Videos', 'Datafiles', 'Others'
+    ]
+
     for file in os.listdir():
         audio = os.path.splitext(file)[1] in AUDIO_FILE
         video = os.path.splitext(file)[1] in VIDEOS_FILES
         images = os.path.splitext(file)[1] in IMAGES_FILES
         data = os.path.splitext(file)[1] in DATA_FILES
         documents = os.path.splitext(file)[1] in DOCUMENTS_FILES
-        dirs = [
-            'Audios', 'Images', 'Documents', 'Videos', 'Datafiles', 'Others'
-        ]
-
         if file not in dirs:
             if data:
                 shutil.move(file, DATAFILE_DIR)
