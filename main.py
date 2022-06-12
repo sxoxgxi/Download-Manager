@@ -25,7 +25,7 @@ VIDEOS_FILES = [
 AUDIO_FILE = [
     '.3ga', '.aac', '.ac3', '.aif', '.aiff',
     '.alac', '.amr', '.ape', '.au', '.dss',
-    '.flac', '.flv', '.m4b', '.m4p',
+    '.flac', '.flv', '.m4a','.m4b', '.m4p',
     '.mp3', '.mpga', '.ogg', '.oga', '.mogg',
     '.opus', '.qcp', '.tta', '.voc', '.wav',
     '.wma', '.wv'
