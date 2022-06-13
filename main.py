@@ -1,6 +1,5 @@
 import os
 import shutil
-# from pathlib import Path
 
 
 PARENT_DIR = r'C:\Users\janak\Downloads'
@@ -49,7 +48,7 @@ EXECUTABLE_FILES = [
     '.gadget', '.inf1', '.ins', '.inx', '.isu', '.job',
     '.jse', '.lnk', '.msc', '.msi', '.msp', '.mst', '.paf',
     '.pif', '.ps1', '.reg', '.rgs', '.scr', '.sct',
-    '.shb', '.shs', '.ws', '.wsf', '.wsh'
+    '.shb', '.shs', '.ws', '.wsf', '.wsh', '.py'
 ]
 
 
